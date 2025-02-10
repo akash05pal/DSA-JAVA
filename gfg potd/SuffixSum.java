@@ -1,37 +1,20 @@
-import java.util.Scanner;
+import java.util.Arrays;
 
 public class SuffixSum {
-    static int findArraySum(int[] arr){
-        int totalsum = 0;
-        for(int i=0;i<arr.length;i++){
-            totalsum += arr[i];
-        }
-        return totalsum;
-    }
-
-    static boolean EqualSumPartition(int[] arr){
-        int totalsum = findArraySum(arr);
-        int prefixsum = 0;
-        for(int i=0;i<arr.length;i++){
-            prefixsum += arr[i];
-            int suffixsum = totalsum - prefixsum;
-            if(suffixsum == prefixsum){
-                return true;
-            }
-        }
-        return false;
-    }
-
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of the array: ");
-            int n = sc.nextInt();
-            int[] arr = new int[n];
-            System.out.println("Enter the elements of the array: ");
-            for(int i=0;i<n;i++){
-                arr[i] = sc.nextInt();
-            }
-            System.out.println(EqualSumPartition(arr));
+        int[] arr = {1, 2, 3, 4, 5};
+        int n = arr.length;
+        int[] suffixSum = new int[n];
 
+        // Start from the last element
+        suffixSum[n - 1] = arr[n - 1]; 
+
+        // Compute suffix sum from right to left
+        for (int i = n - 2; i >= 0; i--) {
+            suffixSum[i] = suffixSum[i + 1] + arr[i];
+        }
+
+        // Print the suffix sum array
+        System.out.println("Suffix Sum: " + Arrays.toString(suffixSum));
     }
 }
