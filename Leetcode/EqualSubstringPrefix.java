@@ -1,4 +1,3 @@
-import java.util.Scanner;
 
 /*public class EqualSubstring {
     public static int findEqualSubstrings(String s) {
@@ -26,6 +25,7 @@ import java.util.Scanner;
     }
 }
 */
+import java.util.Scanner;
 
 import java.util.*;
 
