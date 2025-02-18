@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class SuffixSum {
+public class SuffixSumsubarray {
     static int findArraySum(int[] arr){
         int totalsum = 0;
         for(int i=0;i<arr.length;i++){

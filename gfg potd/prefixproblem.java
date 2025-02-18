@@ -36,7 +36,7 @@ public class prefixproblem {
             int l = scanner.nextInt();
             int r = scanner.nextInt();
         
-            // Convert 1-based index to 0-based
+            // Convert 1-based index to 0-based5
             l--;
             r--;
         
