@@ -1,49 +1,25 @@
-package Leetcode;
-
-import java.util.Scanner;
-
-public class 2DMatrix {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        
-        // Read dimensions and target sum
-        int n = sc.nextInt();
-        int m = sc.nextInt();
-        int k = sc.nextInt();
-        
-        // Create and read the 2D array
-        int[][] arr = new int[n][m];
-        for(int i = 0; i < n; i++) {
-            for(int j = 0; j < m; j++) {
-                arr[i][j] = sc.nextInt();
-            }
-        }
-        
-        // Count subarrays with sum k
+class Solution {
+    public int[] findKDistantIndices(int[] nums, int key, int k) {
+        int n = nums.length;
+        int[] temp = new int[n];
         int count = 0;
+        
+        // Mark valid indices in temp array
         for(int i = 0; i < n; i++) {
-            int[] sum = new int[m];
-            for(int j = i; j < n; j++) {
-                for(int col = 0; col < m; col++) {
-                    sum[col] += arr[j][col];
+            for(int j = Math.max(0, i-k); j <= Math.min(n-1, i+k); j++) {
+                if(nums[j] == key) {
+                    temp[count++] = i;
+                    break;
                 }
-                count += findSubarraysWithSum(sum, k);
             }
         }
         
-        System.out.println(count);
-        sc.close();
-    }
-    
-    private static int findSubarraysWithSum(int[] arr, int k) {
-        int count = 0;
-        for(int i = 0; i < arr.length; i++) {
-            int sum = 0;
-            for(int j = i; j < arr.length; j++) {
-                sum += arr[j];
-                if(sum == k) count++;
-            }
+        // Create result array of exact size
+        int[] result = new int[count];
+        for(int i = 0; i < count; i++) {
+            result[i] = temp[i];
         }
-        return count;
+        
+        return result;
     }
 }
