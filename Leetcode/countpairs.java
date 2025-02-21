@@ -15,7 +15,7 @@ class Solution {
     }
 }
 
-// optimal approach
+// optimal approach two pointer
 
 class Solution {
     public int countPairs(List<Integer> nums, int target) {
