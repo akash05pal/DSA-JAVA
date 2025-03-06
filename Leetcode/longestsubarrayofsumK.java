@@ -17,7 +17,13 @@ class Solution {
                 prefixSum.put(currSum, i);
             }
         }
-        
+
         return maxSubarrLen;
     }
 }
+
+given integer k and dynamic array with not knowing length of it, 
+and an array of size k , the task is to find the k largest element and store in it
+
+example: arr={9,7,2,-1,0,8,....} and k =3
+output: {9,8,7} 
