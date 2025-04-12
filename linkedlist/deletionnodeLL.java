@@ -101,7 +101,7 @@ public class deletionnodeLL {
             head = head.next;
         }
     }
-    
+    //deletion from tail
     private static  Node removeTail(Node head){
         if(head==null || head.next == null) return null;
         Node temp = head;
@@ -111,7 +111,7 @@ public class deletionnodeLL {
         temp.next = null;
         return head;
     }
-
+//deletion from head
     private static Node removesHead(Node head){
         if(head == null){
             return head;
