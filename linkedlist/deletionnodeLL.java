@@ -102,6 +102,16 @@ public class deletionnodeLL {
         }
     }
     
+    private static  Node removeTail(Node head){
+        if(head==null || head.next == null) return null;
+        Node temp = head;
+        while(temp.next.next != null){
+            temp = temp.next;
+        }
+        temp.next = null;
+        return head;
+    }
+
     private static Node removesHead(Node head){
         if(head == null){
             return head;
@@ -111,9 +121,9 @@ public class deletionnodeLL {
     }
     
     public static void main(String[] args) {
-        int[] arr={12,3,2,4};
+        int[] arr={12,3,2,4,3,2,1,4};
         Node head = convertArr2LL(arr);
-        head = removesHead(head);
+        head = removeTail(head);
         print(head);
     }
 }
